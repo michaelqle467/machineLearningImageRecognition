@@ -1,0 +1,14 @@
+# Datasets (keep local)
+dataset/images/
+dataset/labels/
+dataset/**/images/
+dataset/**/labels/
+
+# YOLO outputs
+runs/
+
+# Python cache / env
+__pycache__/
+*.pyc
+.venv/
+.env
