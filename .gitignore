@@ -3,12 +3,18 @@ dataset/images/
 dataset/labels/
 dataset/**/images/
 dataset/**/labels/
+dataset/test/
+dataset/train/
+dataset/val/
 
 # YOLO outputs
 runs/
+*.pt
 
 # Python cache / env
 __pycache__/
 *.pyc
 .venv/
 .env
+venv/
+.idea/
