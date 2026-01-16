@@ -1,5 +1,26 @@
-ultralytics
-opencv-python
-numpy
-fastapi
-uvicorn
+# -------------------------------
+# Core ML / YOLO
+# -------------------------------
+ultralytics>=8.1.0
+
+# -------------------------------
+# Computer Vision
+# -------------------------------
+opencv-python>=4.8.0
+numpy>=1.24
+
+# -------------------------------
+# API (optional)
+# -------------------------------
+fastapi>=0.110
+uvicorn>=0.27
+
+# -------------------------------
+# PyTorch (IMPORTANT)
+# -------------------------------
+# DO NOT install torch here if you want GPU support.
+# Install PyTorch manually using:
+#   pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+#
+# CPU-only users may instead run:
+#   pip install torch torchvision torchaudio

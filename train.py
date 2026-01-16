@@ -7,7 +7,7 @@ def main():
         epochs=60,
         imgsz=640,
         batch=16,
-        device="cpu",   # <-- FIX
+        device=0,      # <-- GPU (RTX 3060 Ti)
         patience=20
     )
 
