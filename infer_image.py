@@ -1,8 +1,8 @@
 from ultralytics import YOLO
 from blackjack_strategy_full import strategy
 
-MODEL_PATH = "runs/detect/train/weights/best.pt"
-CONF_THRES = 0.40
+MODEL_PATH = "runs/detect/train12/weights/best.pt"
+CONF_THRES = 0.15
 
 def auto_split_y(ys):
     ys = sorted(ys)
@@ -11,7 +11,7 @@ def auto_split_y(ys):
 
 def main():
     model = YOLO(MODEL_PATH)
-    img_path = "test_image.png"  # change if needed
+    img_path = "images/IMG_8751.jpg"  # change if needed
 
     results = model(img_path, conf=CONF_THRES, verbose=False)
     r = results[0]

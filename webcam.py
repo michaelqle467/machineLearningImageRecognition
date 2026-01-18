@@ -4,10 +4,10 @@ from ultralytics import YOLO
 # from blackjack_strategy_full import strategy  # optional later
 
 # ---------------- CONFIG ----------------
-MODEL_PATH = r"runs/detect/train4/weights/best.pt"
+MODEL_PATH = r"runs/detect/train12/weights/best.pt"
 
 # Start low so it "tries" on webcam. Increase with key controls.
-CONF_THRES = 0.15
+CONF_THRES = 0.20
 
 # Bigger helps tiny rank symbols; CPU slower. Toggle with I key.
 IMGSZ = 640
@@ -220,7 +220,14 @@ def main():
         # Axis overlay (draw on the displayed image later)
         # Run YOLO only every FRAME_SKIP frames
         if frame_i % FRAME_SKIP == 0:
-            results = model.predict(frame_infer, conf=CONF_THRES, imgsz=IMGSZ, verbose=False)
+            results = model.predict(
+                frame_infer,
+                conf=CONF_THRES,
+                iou=0.35,        # lower = more aggressive merging
+                max_det=10,
+                imgsz=IMGSZ,
+                verbose=False
+            )
             dets = parse_dets(results[0], model, CONF_THRES)
             cached_dets = dets
             # update stable labels buffer with current detections

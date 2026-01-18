@@ -1,20 +1,31 @@
 def card_value(c):
-    if c in ['J','Q','K']:
+    rank = extract_rank(c)
+    if rank in ['J','Q','K']:
         return 10
-    if c == 'A':
+    if rank == 'A':
         return 11
-    return int(c)
+    return int(rank)
+
+def extract_rank(class_name: str) -> str:
+    """
+    Converts '10 Hearts' -> '10'
+    Converts 'Q Spades' -> 'Q'
+    Converts 'A Diamonds' -> 'A'
+    """
+    return class_name.split()[0]
+
 
 def hand_value(cards):
     total, aces = 0, 0
     for c in cards:
-        if c == 'A':
+        rank = extract_rank(c)
+        if rank == 'A':
             aces += 1
             total += 11
-        elif c in ['J','Q','K']:
+        elif rank in ['J','Q','K']:
             total += 10
         else:
-            total += int(c)
+            total += int(rank)
 
     while total > 21 and aces:
         total -= 10
